@@ -1,0 +1,8 @@
+# Ignore all .log files
+*.log
+
+# Ignore temporary files (common temp file patterns)
+*.tmp
+*.temp
+*.swp
+*~
