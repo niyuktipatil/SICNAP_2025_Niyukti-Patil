@@ -1,0 +1,64 @@
+compOSE_options:
+  baryon_density_points: 301
+  baryon_density_spacing: linear
+  charge_fraction_points: 60
+  charge_fraction_spacing: linear
+derivatives:
+  finite_difference:
+    precision: 1
+    step_size: 0.005
+    step_type: relative
+  method: gsl
+flavor_equilibration_options:
+  baryon_density_points: 301
+  charge_fraction_points: 60
+  reinterpolate_eos: false
+global:
+  check_eos_stability: false
+  lepton_fraction: 0.0
+  run_name: ''
+  use_beta_equilibrium: true
+  use_charge_neutrality: false
+  use_lepton_eos: false
+  use_temperature: true
+  verbose: 0
+input:
+  eos_input_file: nuclear_grid.csv
+  flavor_equilibration_input_file: flavor_equilibration.csv
+  particle_properties_input_file: particle_properties.csv
+lepton_eos_parameters:
+  electron_cp_final: 0.0
+  electron_cp_initial: 0.0
+  electron_cp_step: 0.0
+  electron_neutrino_cp_final: 0.0
+  electron_neutrino_cp_initial: 0.0
+  electron_neutrino_cp_step: 0.0
+  temperature_final: 0.0
+  temperature_initial: 0.0
+  temperature_step: 0.0
+multidimensional_interpolator:
+  number_of_points: 100
+  use_multidimensional_interpolator: false
+output:
+  output_compOSE: false
+  output_derivatives: true
+  output_flavor_equilibration: false
+  output_hdf5: false
+  output_particle_properties: false
+particles:
+  use_electron: true
+  use_electron_neutrino: false
+  use_extra_particles: false
+  use_muon: false
+  use_muon_neutrino: false
+  use_tau: false
+  use_tau_neutrino: false
+solver:
+  convergence_threshold: 1.0e-07
+  function_tolerance: 1.0e-10
+  gradient_tolerance: 1.0e-12
+  linear_solver: denseQR
+  max_num_iterations: 1000
+  method: levenbergMarquardt
+  parameter_tolerance: 1.0e-10
+  use_nonmonotonic_steps: true

@@ -1,0 +1,73 @@
+components:
+- name: cmf_baryons_qlimr
+  sequence:
+  - cmf
+  - lepton-cmf
+  - qlimr-cmf
+  type: chain
+processes:
+- config:
+    computational_parameters:
+      options:
+        use_decuplet: true
+        use_hyperons: true
+        use_octet: true
+        use_quarks: false
+        vector_potential: 4
+      output_files:
+        output_Lepton: true
+        output_debug: false
+        output_flavor_equilibration: false
+        output_format: CSV
+        output_particle_properties: false
+      production_run: true
+      variables:
+        muB_begin: 940.0
+        muB_end: 1600.0
+        muB_step: 20.0
+        muQ_begin: -400.0
+        muQ_end: 0.0
+        muQ_step: 5.0
+  module: cmf_solver
+  name: cmf
+- config:
+    global:
+      run_name: ''
+      use_beta_equilibrium: true
+      use_charge_neutrality: false
+    output:
+      output_derivatives: true
+      output_particle_properties: false
+    particles:
+      use_electron: true
+      use_muon: false
+  module: lepton
+  name: lepton-cmf
+  pipes:
+    input_eos:
+      label: CMF_for_Lepton_baryons_only
+      module: cmf_solver
+      process: cmf
+- config:
+    inputs:
+      eos_name: eos
+      initial_epsilon: 100
+      resolution_in_NS_M: 0.01
+      resolution_in_NS_R: 0.01
+    options:
+      eps_sequence: true
+      output_format: csv
+      stable_branch: true
+    outputs:
+      compute_inertia: true
+      compute_love: true
+      compute_mass_and_radius_correction: false
+      compute_quadrupole: true
+      local_functions: false
+  module: qlimr
+  name: qlimr-cmf
+  pipes:
+    eos:
+      label: eos_beta_equilibrium
+      module: lepton
+      process: lepton-cmf

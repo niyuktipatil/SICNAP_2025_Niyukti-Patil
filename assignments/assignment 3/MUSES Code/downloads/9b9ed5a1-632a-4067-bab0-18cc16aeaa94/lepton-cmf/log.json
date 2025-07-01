@@ -1,0 +1,17 @@
+[
+  "Job \"9b9ed5a1-632a-4067-bab0-18cc16aeaa94\": Celery task \"dc0a9120-ecdc-4e1f-8045-76ece647838c\" triggered for task \"lepton-cmf\" running module \"lepton\".",
+  "python3 validate_config.py",
+  "",
+  "Starting execution of yaml_validation.py...",
+  "",
+  "Finished yaml_validation.py...",
+  "./lepton",
+  "",
+  "Using config.yaml file in the directory ../input/config.yaml",
+  "Including particle: electron. Mass:0.510999 MeV. Charge: -1e. Lepton number: 1. Degeneracy: 2",
+  "python3 postprocess.py",
+  "",
+  "Starting execution of postprocess.py...",
+  "",
+  "Execution of postprocess.py completed."
+]
